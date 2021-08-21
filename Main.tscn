@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://IPItem.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 325.0
+margin_bottom = 425.0
+rect_min_size = Vector2( 300, 400 )
+
+[node name="Header" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Header"]
+margin_top = 3.0
+margin_right = 255.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Pinger"
+
+[node name="Add" type="Button" parent="CenterContainer/VBoxContainer/Header"]
+margin_left = 259.0
+margin_right = 279.0
+margin_bottom = 20.0
+text = "+"
+
+[node name="Subtract" type="Button" parent="CenterContainer/VBoxContainer/Header"]
+margin_left = 283.0
+margin_right = 300.0
+margin_bottom = 20.0
+text = "-"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 300.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="IPItems" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer"]
+margin_right = 300.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="IPItem" parent="CenterContainer/VBoxContainer/ScrollContainer/IPItems" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_right = 300.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 115.0
+margin_right = 300.0
+margin_bottom = 135.0
+
+[node name="PingButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 148.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Ping"
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 152.0
+margin_right = 300.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Output" type="TextEdit" parent="CenterContainer/VBoxContainer"]
+margin_top = 139.0
+margin_right = 300.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+readonly = true
+show_line_numbers = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Header/Add" to="." method="_on_Add_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Header/Subtract" to="." method="_on_Subtract_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/PingButton" to="." method="_on_PingButton_pressed"]

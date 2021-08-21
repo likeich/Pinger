@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://IPItem.gd" type="Script" id=1]
+
+[node name="IPItem" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 5.0
+margin_right = 17.0
+margin_bottom = 19.0
+text = "IP:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 21.0
+margin_right = 182.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "127.0.0.1"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 186.0
+margin_top = 5.0
+margin_right = 272.0
+margin_bottom = 19.0
+text = "Ping Amount:"
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_left = 276.0
+margin_right = 350.0
+margin_bottom = 24.0
+step = 4.0
+value = 4.0

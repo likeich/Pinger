@@ -13,11 +13,9 @@ var mutex := Mutex.new()
 func _process(_delta):
 	if finished_threads == threads.size() and threads.size() != 0:
 		for thread in threads:
-			print(thread)
 			thread.wait_to_finish()
 		
 		finished_threads = 0
-		print(threads)
 		threads = []
 		progress.value = progress.max_value
 		ping_button.disabled = false
@@ -43,7 +41,7 @@ func ping(item: IPItem) -> void:
 	# Exit Work
 	mutex.lock()
 	var text : String = returned[0]
-	output.text += text +"\n"
+	output.text += text + "\n"
 	finished_threads += 1
 	progress.value = (float(finished_threads) / float(threads.size())) * 100
 	mutex.unlock()

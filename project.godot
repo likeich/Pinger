@@ -23,8 +23,10 @@ _global_script_class_icons={
 config/name="Pinger"
 run/main_scene="res://Main.tscn"
 boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.305882, 0.305882, 0.305882, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://Oxygen-Icons.org-Oxygen-Categories-applications-internet.ico"
 
 [display]
 
